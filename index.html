@@ -164,74 +164,66 @@
 
 
 
-    <div class="lx-portfolio-area section-padding-80 ">
-        <div class="container-fluid" data-aos="zoom-in" data-aos-duration="3000">
-            <div class="row">
-                <div class="col-12">
-
-                    <div class="lx-projects-menu">
-                        <div class="portfolio-menu text-center">
-                            <button class="btn active" data-filter="*">All</button>
-                            <button class="btn" data-filter=".human">ManlyMettle</button>
-                            <button class="btn" data-filter=".nature">LadyAura</button>
-                            <button class="btn" data-filter=".country">Wedlock</button>
-                            <button class="btn" data-filter=".video">UnityNest</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row lx-portfolio">
-
-              <!-- Add this block inside the <div class="row lx-portfolio"> -->
-
-<!-- LadyAura Images -->
-<div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms">
-    <div class="single-portfolio-content">
-        <img src="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/LadyAura/image%20(1).jpg" alt="">
-        <div class="hover-content">
-            <a href="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/LadyAura/image%20(1).jpg" class="portfolio-img">+</a>
-        </div>
+  
+<div class="lx-projects-menu">
+    <div class="portfolio-menu text-center">
+        <button class="btn active" onclick="filterSelection('all')">All</button>
+        <button class="btn" onclick="filterSelection('ManlyMettle')">ManlyMettle</button>
+        <button class="btn" onclick="filterSelection('LadyAura')">LadyAura</button>
+        <button class="btn" onclick="filterSelection('Wedlock')">Wedlock</button>
+        <button class="btn" onclick="filterSelection('UnityNest')">UnityNest</button>
     </div>
 </div>
 
-<!-- Repeat the above block for each LadyAura image, updating the image source and href accordingly -->
-
-<!-- ManlyMettle Images -->
-<div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp" data-wow-delay="300ms">
-    <div class="single-portfolio-content">
-        <img src="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/ManlyMettle/image%20(1).jpg" alt="">
-        <div class="hover-content">
-            <a href="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/ManlyMettle/image%20(1).jpg" class="portfolio-img">+</a>
-        </div>
-    </div>
+<div class="row lx-portfolio" id="gallery">
+    <!-- Images will be dynamically loaded here -->
 </div>
 
-<!-- Repeat the above block for each ManlyMettle image, updating the image source and href accordingly -->
+<!-- Your existing JavaScript libraries and scripts -->
 
-<!-- UnityNest Images -->
-<div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp" data-wow-delay="500ms">
-    <div class="single-portfolio-content">
-        <img src="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/UnityNest/image%20(1).jpg" alt="">
-        <div class="hover-content">
-            <a href="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/UnityNest/image%20(1).jpg" class="portfolio-img">+</a>
-        </div>
-    </div>
-</div>
+<script>
+    function filterSelection(category) {
+        let images = document.querySelectorAll('.single_gallery_item');
+        if (category === 'all') {
+            images.forEach(image => {
+                image.style.display = "block";
+            });
+        } else {
+            images.forEach(image => {
+                if (image.classList.contains(category)) {
+                    image.style.display = "block";
+                } else {
+                    image.style.display = "none";
+                }
+            });
+        }
+    }
 
-<!-- Repeat the above block for each UnityNest image, updating the image source and href accordingly -->
+    async function loadImages(category) {
+        let response = await fetch(`https://raw.githubusercontent.com/naresh29mpakp/image3/master/PHOTO/${category}/images.json`);
+        let data = await response.json();
 
-<!-- WedLock Images -->
-<div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="700ms">
-    <div class="single-portfolio-content">
-        <img src="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/WedLock/image%20(1).jpg" alt="">
-        <div class="hover-content">
-            <a href="https://github.com/naresh29mpakp/image3/blob/master/PHOTO/WedLock/image%20(1).jpg" class="portfolio-img">+</a>
-        </div>
-    </div>
-</div>
+        let gallery = document.getElementById('gallery');
+        gallery.innerHTML = ''; // Clear existing images
 
-<!-- Repeat the above block for each WedLock image, updating the image source and href accordingly -->
+        data.forEach(image => {
+            let imageUrl = `https://raw.githubusercontent.com/naresh29mpakp/image3/master/PHOTO/${category}/${image}`;
+            let html = `<div class="col-12 col-sm-6 col-lg-3 single_gallery_item ${category} mb-30 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="single-portfolio-content">
+                                <img src="${imageUrl}" alt="">
+                                <div class="hover-content">
+                                    <a href="${imageUrl}" class="portfolio-img">+</a>
+                                </div>
+                            </div>
+                        </div>`;
+            gallery.innerHTML += html;
+        });
+    }
 
+    window.onload = function() {
+        loadImages('ManlyMettle'); // Load ManlyMettle images by default
+    };
+</script>
 
     <section class="pricing">
         <div class="container" data-aos="zoom-in-up" data-aos-duration="3000">
