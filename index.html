@@ -399,7 +399,7 @@
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", function () {
     const portfolioItems = document.querySelector(".custom-portfolio-items");
     const portfolioMenu = document.querySelector(".portfolio-menu");
 
@@ -413,7 +413,7 @@
                 const imageLinks = Array.from(doc.querySelectorAll("table.files td.content a"))
                     .map(link => link.getAttribute("href"))
                     .filter(href => /\.(png|jpe?g|gif)$/i.test(href))
-                    .map(href => "https://raw.githubusercontent.com" + href.replace("/blob", ""));
+                    .map(href => "https://raw.githubusercontent.com/naresh29mpakp/image3/master/" + href.replace("/blob", ""));
 
                 loadImages(imageLinks);
             })
