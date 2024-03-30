@@ -403,34 +403,45 @@
     const portfolioItems = document.querySelector(".custom-portfolio-items");
     const portfolioMenu = document.querySelector(".portfolio-menu");
 
+    // Function to fetch image URLs from a GitHub directory
+    function fetchImageUrls(directoryUrl) {
+        fetch(directoryUrl)
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data, 'text/html');
+                const imageLinks = Array.from(doc.querySelectorAll("table.files td.content a"))
+                    .map(link => link.getAttribute("href"))
+                    .filter(href => /\.(png|jpe?g|gif)$/i.test(href))
+                    .map(href => "https://raw.githubusercontent.com" + href.replace("/blob", ""));
+
+                loadImages(imageLinks);
+            })
+            .catch(error => console.error('Error fetching images:', error));
+    }
+
     // Function to filter images based on category
     function filterImages(category) {
-        const images = document.querySelectorAll(`.single_gallery_item.${category}`);
         portfolioItems.innerHTML = ""; // Clear existing images
-
-        images.forEach(function (image) {
-            portfolioItems.appendChild(image.parentElement.parentElement.cloneNode(true));
-        });
+        if (category === "all") {
+            // Display all images from all folders
+            const folders = ["LadyAura", "ManlyMettle", "UnityNest", "WedLock"];
+            folders.forEach(function(folder) {
+                const directoryUrl = `https://github.com/naresh29mpakp/image3/tree/master/PHOTO/${folder}`;
+                fetchImageUrls(directoryUrl);
+            });
+        } else {
+            // Display images from the selected category
+            const directoryUrl = `https://github.com/naresh29mpakp/image3/tree/master/PHOTO/${category}`;
+            fetchImageUrls(directoryUrl);
+        }
     }
 
     // Event listener for portfolio menu buttons
     portfolioMenu.addEventListener("click", function (e) {
         if (e.target.tagName === "BUTTON") {
             const category = e.target.getAttribute("data-filter");
-            if (category === "all") {
-                // Display all images from all folders
-                portfolioItems.innerHTML = ""; // Clear existing images
-                const folders = ["LadyAura", "ManlyMettle", "UnityNest", "WedLock"];
-                folders.forEach(function(folder) {
-                    const folderImages = document.querySelectorAll(`.single_gallery_item.${folder}`);
-                    folderImages.forEach(function(image) {
-                        portfolioItems.appendChild(image.parentElement.parentElement.cloneNode(true));
-                    });
-                });
-            } else {
-                // Filter images based on category
-                filterImages(category);
-            }
+            filterImages(category);
             // Toggle active class
             portfolioMenu.querySelectorAll("button").forEach(function (btn) {
                 btn.classList.remove("active");
@@ -442,6 +453,7 @@
     // Display all images initially
     filterImages("all");
 });
+
 
     window.dataLayer = window.dataLayer || [];
 
