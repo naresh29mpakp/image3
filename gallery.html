@@ -136,34 +136,27 @@
   }
 
   /* Style for navigation bar */
-/* Navigation Bar Styles */
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.navbar a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 5px 10px;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.navbar a:hover {
-  background-color: #555; /* Darker background color on hover */
-  color: #fff; /* Light text color on hover */
-}
-
-/* Responsive Navigation Bar */
-@media screen and (max-width: 600px) {
-  .navbar a {
-    padding: 4px 8px; /* Reduce padding on smaller screens */
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
   }
-}
+
+  .navbar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .navbar a:hover {
+    background-color: #555;
+    color: #fff;
+  }
+
   /* Style for image container */
   .image-container {
     display: flex;
@@ -409,141 +402,14 @@ function downloadImage() {
   downloadLink.click();
   document.body.removeChild(downloadLink);
 }
-    window.onload = function() {
+
+// Automatically load all images when the page finishes loading
+window.onload = function() {
   filterImages('all');
 };
 </script>
 
 
-            <div class="row lx-portfolio">
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x39.jpg.pagespeed.ic.MLLXHm2RCl.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/39.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x40.jpg.pagespeed.ic.oYJYDcxUpG.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/40.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x41.jpg.pagespeed.ic.6b5kUn681s.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/41.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x42.jpg.pagespeed.ic.h8-xyeYXTi.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/42.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x43.jpg.pagespeed.ic.ZOg-OySSEV.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/43.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x44.jpg.pagespeed.ic.um3ddr6rYM.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/44.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/45.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/45.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/46.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/46.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp"
-                    data-wow-delay="100ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/47.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/47.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp"
-                    data-wow-delay="300ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x48.jpg.pagespeed.ic.ZwS4OSeMPn.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/48.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="500ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x49.jpg.pagespeed.ic.I0h3N4wQ81.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/49.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp"
-                    data-wow-delay="700ms">
-                    <div class="single-portfolio-content">
-                        <img src="img/bg-img/x50.jpg.pagespeed.ic.oqqQP9zpZy.jpg" alt="">
-                        <div class="hover-content">
-                            <a href="img/bg-img/50.jpg" class="portfolio-img">+</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center wow fadeInUp" data-wow-delay="800ms">
-                    <a href="#" class="btn lx-btn btn-2 mt-15">View More</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="follow-area clearfix">
