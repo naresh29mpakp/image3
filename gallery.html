@@ -312,7 +312,7 @@ let slideUrls = [];
 function fetchImages(folder, count) {
   const urls = [];
   for (let i = 1; i <= count; i++) {
-    urls.push(`PHOTO/${folder}/image%20(${i}).jpg`);
+    urls.push(`PHOTO/${folder}/photo%20(${i}).jpg`);
   }
   return urls;
 }
@@ -322,23 +322,23 @@ function filterImages(type) {
   let imageUrls = [];
   switch (type) {
     case 'LadyAura':
-      imageUrls = fetchImages('LadyAura', 16);
+      imageUrls = fetchImages('LadyAura', 99);
       break;
     case 'ManlyMettle':
-      imageUrls = fetchImages('ManlyMettle', 20);
+      imageUrls = fetchImages('ManlyMettle', 99);
       break;
     case 'UnityNest':
-      imageUrls = fetchImages('UnityNest', 25);
+      imageUrls = fetchImages('UnityNest', 97);
       break;
     case 'WedLock':
-      imageUrls = fetchImages('WedLock', 10);
+      imageUrls = fetchImages('WedLock', 37);
       break;
     case 'all':
       imageUrls = [
-        ...fetchImages('LadyAura', 16),
-        ...fetchImages('ManlyMettle', 20),
-        ...fetchImages('UnityNest', 25),
-        ...fetchImages('WedLock', 10)
+        ...fetchImages('LadyAura', 99),
+        ...fetchImages('ManlyMettle', 99),
+        ...fetchImages('UnityNest', 97),
+        ...fetchImages('WedLock', 37)
       ];
       break;
     default:
